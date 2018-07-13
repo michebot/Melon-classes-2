@@ -68,4 +68,23 @@ class InternationalMelonOrder(AbstractMelonOrder):
 		return total
 
 
+class GovernmentMelonOrder(AbstractMelonOrder):
+	tax = 0
+	# can pass this attribute as a class attribute because it will first be false for all instances
+	# of this class
+	passed_inspection = False
+
+	# don't need init because of comment above. only need it when an attribute will be different
+	# for separate instances
+	# def __init__(self, species, qty, passed_inspection):
+
+	# 	self.passed_inspection = False
+	# 	super().__init__(species, qty)
+
+
+	def mark_inspection(self, passed):
+		"""Record the fact than an order has been inspected"""
+		if passed:
+			self.passed_inspection = True
+
 
